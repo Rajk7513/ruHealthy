@@ -35,6 +35,7 @@ if bpage_scrape.status_code == 200:
             'name': item_name,
             'portion_size': portion_size,
             'nutrition_link': nutrition_link
+            
         }
 
         # Append the dictionary to the list
@@ -42,6 +43,23 @@ if bpage_scrape.status_code == 200:
 
 else:
     print("Failed to retrieve the page.")
+## Scraping for the particular data nutrition info
 
+for i in range(0, len(breakfast_items)):
+    link = breakfast_items[i]["nutrition_link"]
+    url = f"https://menuportal23.dining.rutgers.edu/foodpro/{link}"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    nutrition_table = str(soup.find('div', id='nutritional-info'))  # Adjust class name accordingly
+    soup2 = BeautifulSoup(nutrition_table, 'html.parser')
+    percentages = str(soup2.find_all('ul'))
+    soup3 = BeautifulSoup(percentages, 'html.parser')
+    nutrients_dict = {}
+    for ul in soup3.find_all('ul'):
+        for li in ul.find_all('li'):
+            nutrient = li.get_text().strip().split('\n')[0]
+            percentage = int(li.get_text().strip().split('\n')[1].strip().replace('%', '')) if len(li.get_text().strip().split('\n')) > 1 else None
+            nutrients_dict[nutrient] = percentage
+    breakfast_items[i]["nutrients"] = nutrients_dict
 
 print(breakfast_items[0])
