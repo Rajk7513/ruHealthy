@@ -7,7 +7,7 @@ export default function GPT(){
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + "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"
+            'Authorization': 'Bearer ' + "key"
         },
         body: JSON.stringify({
             model: 'gpt-3.5-turbo',
