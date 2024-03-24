@@ -35,5 +35,16 @@ def is_weekday_today():
         return False
     
 
+@app.route('/api/get-dinner-items', methods=["POST"])
+def get_all_dinner_items():
+    all_dinner_items = {
+        "livi" : get_livi_dinner_items(),
+        "cook" : get_cd_dinner_items(),
+        "busch" : get_busch_dh_dinner_items(),
+        "atrium" : get_atrium_dinner_items()
+    }
+    return all_dinner_items
+    
+
 if(__name__ == "__main__"):
     app.run(debug=True)
