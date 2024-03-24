@@ -37,13 +37,16 @@ def is_weekday_today():
 
 @app.route('/api/get-breakfast-items', methods=["POST"])
 def get_all_breakfast_items():
-    all_breakfast_items = {
-        "livi" : get_livi_breakfast_items(),
-        "cook" : get_cd_breakfast_items(),
-        "busch" : get_busch_dh_breakfast_items(),
-        "atrium" : get_atrium_breakfast_items()
-    }
-    return all_breakfast_items
+    if(is_weekday_today()):
+        all_breakfast_items = {
+            "livi" : get_livi_breakfast_items(),
+            "cook" : get_cd_breakfast_items(),
+            "busch" : get_busch_dh_breakfast_items(),
+            "atrium" : get_atrium_breakfast_items()
+        }
+        return all_breakfast_items
+    else:
+        return {}
 
 
 @app.route('/api/get-lunch-items', methods=["POST"])
