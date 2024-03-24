@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-def get_dh_lunch_items():
+def get_busch_dh_lunch_items():
      
     # Make the request to the webpage
     bpage_scrape = requests.get("https://menuportal23.dining.rutgers.edu/foodpro/pickmenu.asp?locationNum=04&locationName=Busch+Dining+Hall&dtdate=3/25/2024&mealName=Lunch&sName=Rutgers+University+Dining")
