@@ -40,9 +40,8 @@ if bpage_scrape.status_code == 200:
         # Append the dictionary to the list
         breakfast_items.append(item_info)
 
-    # Print the list of breakfast items
-    for item in breakfast_items:
-        print(item)
-
 else:
     print("Failed to retrieve the page.")
+
+
+print(breakfast_items[0])
