@@ -8,6 +8,10 @@ from Campus.College_Ave.Atrium.atrium_breakfast import get_atrium_breakfast_item
 from Campus.College_Ave.Atrium.atrium_lunch import get_atrium_lunch_items
 from Campus.College_Ave.Atrium.atrium_dinner import get_atrium_dinner_items
 
+from Campus.Cook.neilson_dining_hall.neilson_breakfast import get_cd_breakfast_items
+from Campus.Cook.neilson_dining_hall.neilson_lunch import get_cd_lunch_items
+from Campus.Cook.neilson_dining_hall.neilson_dinner import get_cd_dinner_items
+
 from Campus.Livingston.dining_hall.dh_breakfast import get_livi_breakfast_items
 from Campus.Livingston.dining_hall.dh_lunch import get_livi_lunch_items
 from Campus.Livingston.dining_hall.dh_dinner import get_livi_dinner_items
