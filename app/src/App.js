@@ -1,14 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import GPT from "./components/gpt";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        Hello World
-      </header>
+export default function App(){
+  return(
+    <div>
+      <GPT />
     </div>
-  );
+  )
 }
-
-export default App;
