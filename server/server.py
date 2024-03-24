@@ -24,5 +24,16 @@ app = Flask(__name__)
 def greeting():
     return "Hello World! Server is active"
 
+def is_weekday_today():
+    # Get the current date
+    today = datetime.datetime.now().date()
+    
+    # Check if the day of the week is Monday to Friday (1 to 5)
+    if today.isoweekday() < 6:
+        return True
+    else:
+        return False
+    
+
 if(__name__ == "__main__"):
     app.run(debug=True)
